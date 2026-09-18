@@ -1,3 +1,8 @@
+export interface ProductVariant {
+  name: string;
+  options: string[];
+}
+
 export interface Product {
   id: string;
   slug: string;
@@ -6,6 +11,7 @@ export interface Product {
   categorySlug: string;
   images: string[];
   description: string;
+  shortDescription: string;
   features: string[];
   specifications: Record<string, string>;
   price: number;
@@ -18,6 +24,7 @@ export interface Product {
   bestseller?: boolean;
   newArrival?: boolean;
   sku: string;
+  variants?: ProductVariant[];
 }
 
 export interface Category {
@@ -32,11 +39,13 @@ export interface Category {
 export interface CartItem {
   product: Product;
   quantity: number;
+  selectedVariants?: Record<string, string>;
 }
 
 export interface HeroSlide {
   id: string;
   image: string;
+  eyebrow?: string;
   headline: string;
   description: string;
   ctaText: string;
@@ -113,4 +122,12 @@ export interface RatingBreakdown {
   3: number;
   2: number;
   1: number;
+}
+
+export interface EditorialCollection {
+  slug: string;
+  name: string;
+  description: string;
+  image: string;
+  href: string;
 }

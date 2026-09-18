@@ -1,143 +1,185 @@
-import {
-  Feature,
-  HeroSlide,
-  PromoBanner,
-} from "@/types";
+import { Feature, HeroSlide, PromoBanner, EditorialCollection } from "@/types";
+import { FREE_SHIPPING_THRESHOLD } from "@/lib/constants";
+import { formatPrice } from "@/lib/format";
+import { categories } from "@/data/categories";
+
+export const utilityBarMessage = `Complimentary shipping on orders ${formatPrice(FREE_SHIPPING_THRESHOLD)} and above · Somers, Connecticut`;
 
 export const heroSlides: HeroSlide[] = [
   {
     id: "1",
     image: "/hero/hero-1.jpg",
-    headline: "Everything Your Home Needs, All in One Place.",
+    eyebrow: "STOCK ACA LLC",
+    headline: "Considered Goods for Modern Living",
     description:
-      "Shop electronics, home essentials, toys, beauty products, kitchen accessories and more at prices you'll love.",
-    ctaText: "Shop Collection",
+      "A Connecticut shop of practical, well-made pieces for the house, the table, and the days in between.",
+    ctaText: "Shop the collection",
     ctaLink: "/shop",
-    secondaryCtaText: "Today's Deals",
-    secondaryCtaLink: "/shop?sale=true",
+    secondaryCtaText: "New arrivals",
+    secondaryCtaLink: "/new-arrivals",
   },
 ];
+
+export const shopCollections: EditorialCollection[] = categories.slice(0, 8).map((c) => ({
+  slug: c.slug,
+  name: c.name,
+  description: c.description,
+  image: c.image,
+  href: `/categories/${c.slug}`,
+}));
 
 export const features: Feature[] = [
   {
     id: "1",
     icon: "truck",
-    title: "Fast Shipping",
-    description: "Free shipping on orders over $75. Delivered in 3–5 business days.",
+    title: `Free shipping over ${formatPrice(FREE_SHIPPING_THRESHOLD)}`,
+    description: "Standard delivery in 3–5 business days.",
   },
   {
     id: "2",
-    icon: "shield",
-    title: "Secure Checkout",
-    description: "Your payment information is protected with industry-standard encryption.",
+    icon: "rotate",
+    title: "30-day returns",
+    description: "Unused items, in original packaging.",
   },
   {
     id: "3",
-    icon: "rotate",
-    title: "Easy Returns",
-    description: "Hassle-free 30-day returns on most items. We make it simple.",
-  },
-  {
-    id: "4",
-    icon: "headphones",
-    title: "Customer Support",
-    description: "Our friendly team is available Mon–Fri to help with orders and questions.",
-  },
-  {
-    id: "5",
     icon: "star",
-    title: "Trusted Quality",
-    description: "Every product is carefully selected for quality, value, and reliability.",
+    title: "Chosen for use",
+    description: "A considered catalog, not a marketplace of everything.",
   },
 ];
 
 export const dealsEndTime = new Date(Date.now() + 1000 * 60 * 60 * 18).toISOString();
 
 export const homepageDealsSlugs = [
-  "wireless-earbuds",
-  "electric-kettle",
-  "air-fryer",
-  "dog-bed",
-  "bath-towel-set",
-  "sunglasses-classic",
-] as const;
-
-export const homepageBestsellerSlugs = [
-  "wireless-earbuds",
-  "bluetooth-speaker",
-  "bath-towel-set",
-  "yoga-mat",
-  "kids-learning-tablet",
-  "coffee-grinder",
-  "dog-bed",
-  "electric-kettle",
+  "cotton-bath-towels",
+  "glass-electric-kettle",
+  "acetate-sunglasses",
 ] as const;
 
 export const homepageFeaturedSlugs = [
-  "wireless-earbuds",
-  "electric-kettle",
-  "bath-towel-set",
-  "kids-learning-tablet",
-  "standing-desk-lamp",
-  "air-fryer",
-  "yoga-mat",
-  "dog-bed",
-  "coffee-grinder",
-  "bluetooth-speaker",
+  "linen-throw-blanket",
+  "stoneware-dinner-plates",
+  "ceramic-table-lamp",
+  "canvas-weekender",
+  "merino-crew-sweater",
+  "walnut-side-table",
+  "everyday-ceramic-mug",
+  "leather-strap-watch",
 ] as const;
 
 export const homepageNewArrivalSlugs = [
-  "stem-robot-kit",
-  "vitamin-c-serum-set",
-  "baby-monitor",
-  "foam-roller",
+  "brass-wall-hooks",
+  "stoneware-vase",
+  "walnut-wall-clock",
+  "cotton-overshirt",
+  "eau-de-parfum",
+  "linen-cover-notebook",
+  "analog-alarm-clock",
 ] as const;
+
+export const homepageBestsellerSlugs = [
+  "cotton-bath-towels",
+  "glass-electric-kettle",
+  "everyday-ceramic-mug",
+  "soy-pillar-candle",
+  "canvas-weekender",
+  "insulated-travel-tumbler",
+  "natural-yoga-mat",
+  "stoneware-dinner-plates",
+] as const;
+
+export const editorialShowcase = {
+  eyebrow: "From the house",
+  title: "Rooms that stay in use.",
+  description:
+    "A lamp beside a chair, a board on the counter, a throw where you sit in the evening. These are the pieces we return to — not because they announce themselves, but because they belong.",
+  ctaText: "Shop home",
+  ctaLink: "/categories/home",
+  image: "/banners/editorial-1.jpg",
+  secondaryImage: "/banners/editorial-2.jpg",
+  productSlugs: ["ceramic-table-lamp", "oak-cutting-board", "linen-throw-blanket"] as const,
+};
+
+export const newEnglandEdit = {
+  title: "The New England Edit",
+  eyebrow: "A seasonal selection",
+  description:
+    "Wool, linen, and a bag that takes a couple of days. Chosen for the way a Connecticut household actually moves through the week — indoors, outdoors, and on the road between.",
+  ctaText: "Shop the edit",
+  ctaLink: "/shop",
+  image: "/banners/new-england-edit.jpg",
+  productSlugs: [
+    "merino-crew-sweater",
+    "wool-scarf",
+    "linen-throw-blanket",
+    "canvas-weekender",
+  ] as const,
+};
+
+export const everydayLiving = {
+  eyebrow: "Home & everyday living",
+  title: "The weekday house.",
+  description:
+    "Bedding that feels washed from the first night, plates that stack, a kettle that simply boils. Practical design for rooms that are lived in, not staged.",
+  ctaText: "Shop kitchen & dining",
+  ctaLink: "/categories/kitchen-dining",
+  image: "/banners/everyday-living.jpg",
+};
+
+export const secondaryBanner = {
+  eyebrow: "Quiet architecture",
+  title: "Made to sit with the house.",
+  description:
+    "Natural materials, unforced proportion, and a palette that belongs to plaster, wood, and stone. Nothing extra. Nothing loud.",
+  ctaText: "Explore collections",
+  ctaLink: "/categories",
+  image: "/banners/secondary.jpg",
+};
 
 export const promotionalBanner: PromoBanner = {
   id: "1",
-  title: "Upgrade Your Everyday Living",
-  description:
-    "Discover premium products for every room in your home, from smart electronics to comfortable essentials, all in one place.",
-  buttonText: "Shop Deals",
-  buttonLink: "/shop?sale=true",
+  title: `Complimentary shipping from ${formatPrice(FREE_SHIPPING_THRESHOLD)}`,
+  description: "Standard delivery in 3–5 business days, on us when your order reaches seventy-five.",
+  buttonText: "Shop all",
+  buttonLink: "/shop",
   image: "/banners/featured.jpg",
 };
 
 export const aboutSection = {
-  title: "Shopping Made Easy.",
+  title: "A shop for considered living.",
   description:
-    "AAM Partners LLC brings together quality products across multiple categories, helping families find everything they need in one trusted online marketplace. We focus on affordability, reliability, and a smooth shopping experience from browsing to checkout.",
+    "STOCK ACA LLC gathers useful things for modern households — objects with a practical kind of quality, meant to be lived with rather than displayed. From Somers, Connecticut.",
   checklist: [
-    "Wide selection across 12+ categories",
-    "Competitive prices on everyday essentials",
-    "Fast, reliable shipping nationwide",
-    "Dedicated customer support team",
+    "A considered catalog, not a marketplace of everything",
+    "Pieces chosen for everyday utility",
+    "Home, table, travel, and gifts in one place",
+    "Quiet design that holds up over time",
   ],
-  buttonText: "Learn More About Us",
+  buttonText: "Our approach",
   buttonLink: "/about",
   image: "/banners/about.jpg",
 };
 
 export const featuredCollection = {
-  title: "Featured Products",
-  description:
-    "Hand-picked favorites across electronics, home, beauty, and more — everything you need in one marketplace.",
+  title: "Featured collection",
+  description: "A few things we keep returning to.",
   bannerImage: "/banners/featured.jpg",
-  categorySlug: "electronics",
+  categorySlug: "home",
 };
 
 export const bestSellerTabs = [
   { label: "All", slug: "all" },
-  { label: "Electronics", slug: "electronics" },
-  { label: "Home & Kitchen", slug: "home-kitchen" },
-  { label: "Beauty", slug: "beauty" },
-  { label: "Sports", slug: "sports-outdoors" },
+  { label: "Home", slug: "home" },
+  { label: "Kitchen", slug: "kitchen-dining" },
+  { label: "Travel", slug: "travel" },
+  { label: "Apparel", slug: "apparel" },
 ];
 
 export const newsletter = {
-  title: "Get Exclusive Deals Before Everyone Else",
-  description: "Subscribe for discounts, new arrivals, and weekly offers.",
-  placeholder: "Enter your email address",
+  title: "Notes from the shop.",
+  description: "New pieces and the occasional edit, sent only when there is something worth writing.",
+  placeholder: "Your email",
   buttonText: "Subscribe",
 };
 

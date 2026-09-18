@@ -1,22 +1,17 @@
 export const company = {
-  name: "AAM Partners LLC",
-  tagline: "Everything You Need. Delivered with Confidence.",
+  name: "STOCK ACA LLC",
+  displayName: "STOCK ACA",
+  tagline: "Considered goods for modern living.",
   description:
-    "AAM Partners LLC brings together quality products across multiple categories, helping families find everything they need in one trusted online marketplace.",
-  email: "aampartnersllc1@gmail.com",
+    "STOCK ACA LLC is a Connecticut shop for home, table, and everyday living — practical pieces with a quiet, contemporary character.",
+  email: "jeffstockaca@gmail.com",
   address: {
-    street: "717 S Military Hwy",
-    city: "Virginia Beach",
-    state: "VA",
-    zip: "23464",
+    street: "184 Wood Rd",
+    city: "Somers",
+    state: "CT",
+    zip: "06071",
     country: "United States",
   },
-  social: {
-    instagram: "https://instagram.com/aampartnersllc",
-    facebook: "https://facebook.com/aampartnersllc",
-    twitter: "https://twitter.com/aampartnersllc",
-    pinterest: "https://pinterest.com/aampartnersllc",
-  },
   hours: "Mon–Fri: 9am–6pm EST",
-  copyright: `© ${new Date().getFullYear()} AAM Partners LLC. All rights reserved.`,
+  copyright: `© ${new Date().getFullYear()} STOCK ACA LLC. All rights reserved.`,
 };

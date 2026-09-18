@@ -16,8 +16,8 @@ interface PageHeroProps {
 
 export function PageHero({ title, description, breadcrumbs }: PageHeroProps) {
   return (
-    <div className="border-b border-border bg-muted/30">
-      <Container className="py-6 md:py-8">
+    <div className="border-b border-border bg-muted/50">
+      <Container className="py-8 md:py-12">
         <nav aria-label="Breadcrumb" className="mb-4">
           <ol className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
             <li>
@@ -40,7 +40,7 @@ export function PageHero({ title, description, breadcrumbs }: PageHeroProps) {
             ))}
           </ol>
         </nav>
-        {title && <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{title}</h1>}
+        {title && <h1 className="font-serif text-3xl font-medium tracking-tight md:text-4xl">{title}</h1>}
         {description && (
           <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">{description}</p>
         )}
@@ -58,7 +58,7 @@ interface PageSectionProps {
 export function PageSection({ title, children, className }: PageSectionProps) {
   return (
     <section className={cn("py-8 md:py-10", className)}>
-      {title && <h2 className="mb-4 text-xl font-semibold md:text-2xl">{title}</h2>}
+      {title && <h2 className="mb-4 font-serif text-2xl font-medium md:text-3xl">{title}</h2>}
       <div className="prose-store text-muted-foreground leading-relaxed">{children}</div>
     </section>
   );
