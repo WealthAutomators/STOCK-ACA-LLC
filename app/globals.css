@@ -98,3 +98,11 @@ body {
   outline: 2px solid var(--primary);
   outline-offset: 3px;
 }
+
+/* mobile-overflow-guard */
+@layer base {
+  html,
+  body {
+    overflow-x: clip;
+  }
+}
